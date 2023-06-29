@@ -1,0 +1,65 @@
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    background-color: #f4f5fa;
+    overflow-x: hidden;
+    margin-top: 20px;
+}
+
+.sidenav a {
+    padding: 15px 6px 30px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+}
+
+.sidenav a:hover {
+    background-color: white;
+    border-radius: 10px;
+    color: #7a85f5;
+}
+
+.sidenav .current {
+    color: #4a3aff;
+}
+
+.userdiv {
+    margin-left: 250px;
+    width: 50em;
+    line-height: 1.5;
+    font-family: 'Poppins';
+}
+
+.main {
+    margin-left: 250px;
+    margin-top: 30px;
+    width: 50em;
+}
+
+.adminbody {
+    margin-top: 50px;
+    margin-left: 350px;
+    width: 50em;
+    line-height: 1.5;
+    font-family: 'Poppins';
+    border: 5px solid #b4fac7;
+    border-radius: 15px;
+    border-left-color: #a4a4f4;
+    padding: 20px;
+}
+
+.startbody {
+    margin-top: 50px;
+    margin-left: 350px;
+    width: 50em;
+    line-height: 1.5;
+    font-family: 'Poppins';
+    border: 5px solid #b4fac7;
+    border-radius: 15px;
+    border-left-color: #a4a4f4;
+    align-items: center;
+    padding: 20px;
+}

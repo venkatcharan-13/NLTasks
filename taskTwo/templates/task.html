@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Tasks {% endblock title %} {% block userId %} {{userId}} {% endblock userId %}{% block current4 %} current {% endblock current4 %}{% block content %}
+<script>
+    const endpoint = 'api/tpInfo/'
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(response) {
+            console.log("Success task Info");
+            displayBankDetails(response);
+        },
+        error: function(error_data) {
+            console.log("Error");
+            console.log(error_data);
+        }
+    })
+
+    function displayBankDetails(data) {
+        for (let i = 0; i < data.length; i++) {
+            if (i == data.length - 1) {
+                console.log('Bingo');
+                break;
+            }
+
+            var htmlOfCard = `
+                 <tr>
+                    <th scope="row">${i+1}</th>
+                     <td>${data[i]['user_app_name']}</td>
+                     <td>${data[i]['task_completed']}</td>
+                   </tr>
+                 `;
+            document.getElementById('htmlInsertTable').insertAdjacentHTML('beforeend', htmlOfCard)
+        }
+
+
+    }
+</script>
+<div class="taskwholebody">
+    <h1>TASK</h1>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th scope="col">App Name</th>
+                <th scope="col">Task</th>
+            </tr>
+        </thead>
+        <tbody id="htmlInsertTable">
+
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

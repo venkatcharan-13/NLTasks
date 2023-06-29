@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Points {% endblock title %}{% block userId %} {{userId}} {% endblock userId %} {% block current3 %} current {% endblock current3 %}{% block content %}
+
+<script>
+    const endpoint = 'api/tpInfo/'
+
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(response) {
+            console.log("Success task Info");
+            displayBankDetails(response);
+        },
+        error: function(error_data) {
+            console.log("Error");
+            console.log(error_data);
+        }
+    })
+
+    function displayBankDetails(data) {
+        for (let i = 0; i < data.length; i++) {
+            if (i == data.length - 1) {
+                console.log('Bingo');
+                var totalPoints_html = `Total Points= ${data[i]}`
+                document.getElementById('total_points').insertAdjacentText('beforeend', totalPoints_html)
+                break;
+            }
+
+            var htmlOfCard = `
+                 <tr>
+                    <th scope="row">${i+1}</th>
+                     <td>${data[i]['user_app_name']}</td>
+                     <td>${data[i]['user_app_points']}</td>
+                   </tr>
+                 `;
+            document.getElementById('htmlInsertTable').insertAdjacentHTML('beforeend', htmlOfCard)
+        }
+
+
+    }
+</script>
+<div class="taskwholebody">
+    <div class="d-flex justify-content-between">
+        <h1>POINTS</h1>
+        <h4 id="total_points"></h4>
+    </div>
+
+    <table class="table table-primary table-striped">
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th scope="col">App Name</th>
+                <th scope="col">App Points</th>
+            </tr>
+        </thead>
+        <tbody id="htmlInsertTable">
+
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

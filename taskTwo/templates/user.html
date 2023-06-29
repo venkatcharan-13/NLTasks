@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %} {% block title %} User Page{% endblock title %} {% block userId %} {{userId}} {% endblock userId %}{% block current1 %} current {% endblock current1 %} {% load widget_tweaks %}{% block content %}
+
+<script>
+    const endpoint = 'api/appInfo/'
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function(response) {
+            console.log("Success App Info");
+            displayBankDetails(response);
+        },
+        error: function(error_data) {
+            console.log("Error");
+            console.log(error_data);
+        }
+    })
+
+    function displayBankDetails(data) {
+        data.forEach(object => {
+            var htmlOfCard = `
+            <form method="POST" class="row g-3" , enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/media/${object.user_app_image}" class="img-fluid rounded-start" alt="${object.user_app_image}" width=220px height=220px>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">${object.user_app_name}</h5>
+                                    <button type="button" class="btn btn-success" disabled>${object.user_app_points} Points</button> 
+                                </div>
+                              
+                                <p>
+                                    <div class="hidediv" style="display: none;">
+                                        {% render_field form.adminappId|append_attr:"value:${object.app_id}" class+="form-control" %}
+                                        {% render_field form.userappid|append_attr:"value:${object.user_apps_id}" class+="form-control" %}
+                                        {% render_field form.userAppName|append_attr:"value:${object.user_app_name}" class+="form-control" %}
+                                        {% render_field form.userAppPoints|append_attr:"value:${object.user_app_points}" class+="btn btn-success" %} 
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="mb-2" for="uploadidss" style="color:blue;">upload screenshot to complete Task</label> 
+                                        {% render_field form.userAppImage class+="form-control" %}
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary" style="margin-top:30px">Add</button>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+                    `;
+
+            document.getElementById('userwholebody').insertAdjacentHTML('beforeend', htmlOfCard)
+        });
+
+    }
+</script>
+<h1>HOME</h1>
+<div id="userwholebody">
+
+</div>
+<!-- <input type="number" name="appId" value="${object.user_app_id}"> -->
+
+{% endblock content %}

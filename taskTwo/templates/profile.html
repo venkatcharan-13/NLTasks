@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Profile {% endblock title %}{% block userId %} {{userId}} {% endblock userId %} {% block current2 %} current {% endblock current2 %}{% block content %}
+<div>
+    <h1> Profile</h1>
+    <div class="probody">
+        <div class="card">
+            <div class="card-header">
+                User Details
+            </div>
+            <div class="card-body"><pre></pre>
+                <h5 class="card-title"> <b>Username&nbsp;  : </b>&nbsp;{{user_name}} </h5>
+                <h5 class="card-title"> <b>First Name&nbsp;: </b>&nbsp;{{first_name}} </h5>
+                <h5 class="card-title"><b>Last Name&nbsp;  : </b> &nbsp;{{last_name}} </h5>
+                <h5 class="card-title"><b>Email &nbsp; &nbsp;    : </b> &nbsp;{{email}} </h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
