@@ -85,7 +85,7 @@ DATABASES = {
        'NAME': 'T2DB',
        'USER': 'postgres',
        'PASSWORD': 'postgres',
-       'HOST': '127.0.0.1',
+       'HOST': 'nltasks.cmogv3rjeyml.eu-north-1.rds.amazonaws.com',
        'PORT': '5432',
    }
 }
