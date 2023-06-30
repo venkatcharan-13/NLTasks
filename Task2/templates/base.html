@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{% static 'static.css' %}" rel='stylesheet' type="text/css">
+    <!-- <link rel="stylesheet" href="{% static 'static.css' %}" rel='stylesheet' type="text/css"> -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
@@ -17,6 +17,49 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            background-color: #f4f5fa;
+            overflow-x: hidden;
+            margin-top: 20px;
+        }
+        
+        .sidenav a {
+            padding: 15px 6px 30px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: black;
+            display: block;
+        }
+        
+        .sidenav a:hover {
+            background-color: white;
+            border-radius: 10px;
+            color: #7a85f5;
+        }
+        
+        .sidenav .current {
+            color: #4a3aff;
+        }
+        
+        .userdiv {
+            margin-left: 250px;
+            width: 50em;
+            line-height: 1.5;
+            font-family: 'Poppins';
+        }
+        
+        .main {
+            margin-left: 250px;
+            margin-top: 30px;
+            width: 50em;
+        }
+    </style>
 
     <title>{% block title %}{% endblock title %}</title>
 </head>
