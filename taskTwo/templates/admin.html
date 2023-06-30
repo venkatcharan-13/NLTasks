@@ -1,5 +1,4 @@
-{% load widget_tweaks %}
-
+{% load static %} {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>login</title>
-    <link rel="stylesheet" href="../static/static.css">
+    <link rel="stylesheet" href="{% static 'static.css' %}" rel='stylesheet' type="text/css">
+
 </head>
 
 <body>
@@ -56,3 +56,59 @@
 </body>
 
 </html>
+<!-- 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'static.css' %}" rel='stylesheet' type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <div class="userdiv">
+        <h1 class="bg-primary text-center" style="margin-left:250px;">Hello {% block userId %}{% endblock userId %}</h1>
+        <div class="sidenav">
+            <a href="/user" class="{% block current1 %}{% endblock current1 %}">
+                <b>
+                    <i class="fi fi-rs-home"></i>&emsp;Home
+          </b></a>
+            <a href="/profile" class="{% block current2 %}{% endblock current2 %}">
+                <b>
+                    <i class="fi fi-rs-info"></i>&emsp;Profile
+          </b></a>
+            <a href="/points" class="{% block current3 %}{% endblock current3 %}">
+                <b>
+                    <i class="fi fi-rs-hand-back-point-right"></i></i>&emsp;Points
+          </b></a>
+            <a href="/task" class="{% block current4 %}{% endblock current4 %}">
+                <b>
+                    <i class="fi fi-rs-note"></i>&emsp;Task
+          </b> </a>
+            <a href="/logout" class="{% block current5 %}{% endblock current5 %}">
+                <b>
+                    <i class="fi fi-rs-info"></i>&emsp;Logout
+          </b> </a>
+        </div>
+        <div class="main">
+
+            {% block content %}{% endblock content %}
+
+        </div>
+    </div>
+</body>
+
+</html> -->
