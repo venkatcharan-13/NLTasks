@@ -59,6 +59,7 @@ ROOT_URLCONF = 'Task2.urls'
 CORS_ALLOW_ALL_ORIGIN=True
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 mimetypes.add_type("text/css",".css",True)
+mimetypes.add_type("text/html",".html",True)
 
 TEMPLATES = [
     {
