@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import mimetypes
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -57,6 +58,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'Task2.urls'
 CORS_ALLOW_ALL_ORIGIN=True
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+mimetypes.add_type("text/css",".css",True)
 
 TEMPLATES = [
     {
